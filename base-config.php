@@ -5,8 +5,8 @@
  * 
  */
 // Redirect if accessed this file directly
-if (strstr($_SERVER["PHP_SELF"], "/config.php")) {
-    header("Location: ../index.php");
+if (strstr($_SERVER["PHP_SELF"], "/base-config.php")) {
+    header("Location: index.php");
 }
 
 // Basic Config
@@ -40,7 +40,7 @@ if (strpos($_SERVER['REQUEST_URI'], $base)!==0) {
 	$base = trim($base, '/');
 	$base = '/'.$base.'/';
 } else {
-	// Workaround for Windows Servers
-	$base = '/';
+	$base = '/';  // Workaround for Windows Servers
 }
 define('BASE_URL', $base);
+define('NOT_FOUND',BASE_PATH.'404.php');
