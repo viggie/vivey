@@ -1,0 +1,2 @@
+<h3>Vivey - is a simple, fast, flat-file CMS</h3>
+<p>It will be sufficient for simple business / content websites with 5 to 50 pages.</p>
