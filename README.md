@@ -18,10 +18,11 @@ Blog
 Theme files have header, footer, sidebar as functions. Themes is a single file `src/theme.php` 
 
 ## File Structure
-/  -- Main Site
-/assets/ - CSS, Images folders
+~~~
+/         - Main Site
+/assets/  - CSS, Images folders
 /blog-posts/ - Blog posts
-/content/ - Content pages
-/src/  - Source code related to internal functioning of Website
-  json/ - Holds JSON values for Pages & Blog
-
+/content/    - Content pages
+/src/        - Source code related to internal functioning of Website
+    json/    - Holds JSON values for Pages & Blog
+~~~
