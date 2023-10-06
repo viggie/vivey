@@ -16,7 +16,7 @@ $router->route('/^'.$url.'?$/', function(){
     // print "Home Page - Load index.php";
  });
 $router->route('/^'.$url.'([\w-]+)\/?$/', function($page){
-	if(is_file("content/{$page}.txt"))   
+	if(is_file("content/{$page}.txt"))
 		include SOURCE.'content.php';
  	else include NOT_FOUND;
     // print "Direct Page - Load {$task}.php";

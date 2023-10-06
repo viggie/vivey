@@ -1,4 +1,10 @@
 <?php
+// Top navigation with URL, Name in array
+// Add a new array to add a page in nav
+$navlink = [
+    ['about', 'About Us'],
+    ['contact', 'Contact Us']
+  ];
 
 // Get Page list
 $jsonvalues = file(JSON_PATH."site-json.php");
@@ -13,7 +19,7 @@ $keyword = $contents['keyword'];
 $description = $contents['description'];
 
 // Display content
-print the_header($title,$keyword,$description);
+print the_header($navlink,$title,$keyword,$description);
 echo "<h1>Oops</h1>
 <p>The page doesn't exist.  Please click on the navigation to browse other pages.</p>";
 print the_footer();

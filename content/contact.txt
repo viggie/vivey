@@ -1,0 +1,2 @@
+<h3>Sample Contact Page</h3>
+<p>You can show your contact details, email & social media handles here.</p>

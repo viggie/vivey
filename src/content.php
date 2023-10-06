@@ -10,7 +10,9 @@ unset($jsonvalues[0]);
 $jsonvalues = implode($jsonvalues);
 $contents = json_decode($jsonvalues, true);
 
+$navlink = [];
 foreach($contents as $key => $value) {
+    $navlink[] = [$value['url'],$value['menuname']];
     if($key==$page) {
         // Prepare the content
         $title = $value['title'];
@@ -18,14 +20,17 @@ foreach($contents as $key => $value) {
         $description = $value['description'];
         $content = file_get_contents(CONTENT_PATH.$page.'.txt');
 
-        // Display content
-        print the_header($title,$keyword,$description);
-        echo $content;
-        print the_footer();
-
         $showed = true;
     }
-
 }
 
-if(!$showed) include NOT_FOUND;
+// Render page
+
+if($showed) {
+    print the_header($navlink,$title,$keyword,$description);
+    echo $content;
+    print the_footer();
+} else {
+    include NOT_FOUND;
+}
+

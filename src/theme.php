@@ -3,12 +3,23 @@
  * Layout Theme
  * Author Viggie <viggie@viggie.com>
  * 
+ * Uses Bootstrap 4.3.1 in CDN.  You can change it to your preferrred CSS framework.  Just be sure to modify the class names in html as necessary
  */
 
-
-function the_header($title="Web Developer",$keyword, $desc) {
+function the_header($navlink, $title="Web Developer",$keyword="", $desc="") {
   $url = BASE_URL;
-  $navlink = array( 'about', 'blog');
+  $navhtml = '';
+
+  // Building navigation
+  if(is_array($navlink)) {
+    foreach($navlink as $nav) {
+      $navhtml .= '
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="'.$url.$nav[0].'">'.$nav[1].'</a>
+      </li>';
+    }
+  }
+
 
 $html = <<<END
 <!DOCTYPE html>
@@ -41,12 +52,7 @@ $html = <<<END
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="$url$navlink[0]">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="$url$navlink[1]">Blog</a>
-            </li>
+            $navhtml
           </ul>
         </div>
       </div>
