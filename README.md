@@ -16,8 +16,8 @@ Pages
 * URL should be same as json key value (for now)
 
 Blog is removed for now.  It needs some major revision.  Will make a comeback in a future version.
-[//] # * Blog info - title, URL, keyword, descriptin etc will be in `src/json/blog-json.php`.
-[//] # * Blog content will exist as txt files in `blog-posts` folder.
+<!--> # * Blog info - title, URL, keyword, descriptin etc will be in `src/json/blog-json.php`.
+ # * Blog content will exist as txt files in `blog-posts` folder.-->
 
 ## Theme
 Theme files have header, footer as functions. Themes is a single file `src/theme.php` 
