@@ -21,7 +21,8 @@ Blog is removed for now.  It needs some major revision.  Will make a comeback in
 
 ## Theme
 Theme files have header, footer as functions. Themes is a single file `src/theme.php` 
-Uses Bootstrap 4.3.1 in CDN.  You can change it to your preferrred CSS framework.  Just be sure to modify the class names in html as necessary.
+Uses Bootstrap 5.3.2 & Bootstrap Icons 1.11.2 in CDN.  
+You can change it to your preferrred CSS framework.  Just be sure to modify the class names in html as necessary.
 Edit this theme as necessary to change.
 
 ## File Structure
