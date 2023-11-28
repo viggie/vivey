@@ -1,6 +1,6 @@
 # vivey
 Flat File CMS - Simple, fast, secure - from Mejura
-### Version 0.0.2
+### Version 0.0.3
 
 ## Install
 Just unzip or upload to web server.  Edit site-config.php in main folder with suitable values & start access the website through browser.  Content files need to be edited directly & uploaded.
