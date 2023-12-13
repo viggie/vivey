@@ -36,6 +36,6 @@ Edit this theme as necessary to change.
 /         - Main Site
 /assets/  - CSS, Images folders
 /content/    - Content pages
-/src/        - Source code related to internal functioning of Website
     json/    - Holds JSON values for Pages
+/src/        - Source code related to internal functioning of Website
 ~~~

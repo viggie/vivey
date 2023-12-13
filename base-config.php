@@ -43,7 +43,7 @@ if (strpos($_SERVER['REQUEST_URI'], $base)!==0) {
 	$base = '/';  // Workaround for Windows Servers
 }
 define('BASE_URL', $base);
-define('NOT_FOUND',BASE_PATH.'404.php');
+define('NOT_FOUND',SOURCE.'404.php');
 
 // Get json values in array from php files
 function json2array($file) {
