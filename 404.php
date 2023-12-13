@@ -6,20 +6,11 @@ $navlink = [
     ['contact', 'Contact Us']
   ];
 
-// Get Page list
-$jsonvalues = file(JSON_PATH."site-json.php");
-// remove php security code in file
-unset($jsonvalues[0]);
-$jsonvalues = implode($jsonvalues);
-$contents = json_decode($jsonvalues, true);
-
-// Prepare the content
-$title = $contents['title'];
-$keyword = $contents['keyword'];
-$description = $contents['description'];
+// Get Site info
+$siteinfo = json2array("site-json.php");
 
 // Display content
-print the_header($navlink,$title,$keyword,$description);
+print the_header($navlink,$siteinfo,$siteinfo);
 echo "<h1>Oops</h1>
 <p>The page doesn't exist.  Please click on the navigation to browse other pages.</p>";
 print the_footer();

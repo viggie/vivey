@@ -3,21 +3,17 @@
 if(!isset($page)) $page='index';
 $showed = false;
 
+// Get Site info
+$siteinfo = json2array("site-json.php");
 // Get Page list
-$jsonvalues = file(JSON_PATH."content-json.php");
-// remove php security code in file
-unset($jsonvalues[0]);
-$jsonvalues = implode($jsonvalues);
-$contents = json_decode($jsonvalues, true);
-
+$contents = json2array("content-json.php");
 $navlink = [];
+
 foreach($contents as $key => $value) {
     $navlink[] = [$value['url'],$value['menuname']];
     if($key==$page) {
         // Prepare the content
-        $title = $value['title'];
-        $keyword = $value['keyword'];
-        $description = $value['description'];
+        $pageinfo = $value;
         $content = file_get_contents(CONTENT_PATH.$page.'.txt');
 
         $showed = true;
@@ -27,9 +23,9 @@ foreach($contents as $key => $value) {
 // Render page
 
 if($showed) {
-    print the_header($navlink,$title,$keyword,$description);
+    print the_header($navlink,$pageinfo,$siteinfo);
     echo $content;
-    print the_footer();
+    print the_footer($siteinfo['copyright']);
 } else {
     include NOT_FOUND;
 }

@@ -2,12 +2,10 @@
 
 if(!isset($page)) $page='index';
 
-// Get Page list
-$jsonvalues = file(JSON_PATH."blog-json.php");
-// remove php security code in file
-unset($jsonvalues[0]);
-$jsonvalues = implode($jsonvalues);
-$contents = json_decode($jsonvalues, true);
+// Get Site info
+$siteinfo = json2array("site-json.php");
+// Get blog list
+$contents = json2array("blog-json.php");
 
 foreach($contents as $key => $value) {
     if($key==$page) {
@@ -18,7 +16,7 @@ foreach($contents as $key => $value) {
         $content = file_get_contents(CONTENT_PATH.$page.'.txt');
 
         // Display content
-        print the_header($title,$keyword,$description);
+        print the_header('',$pageinfo,$siteinfo);
         echo $content;
         print the_footer();
     }

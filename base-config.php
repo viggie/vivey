@@ -15,7 +15,7 @@ define('DS', DIRECTORY_SEPARATOR);
 define('BASE_PATH', __DIR__.DS);
 define('CONTENT_PATH', BASE_PATH.'content'.DS);
 define('SOURCE', BASE_PATH.'src'.DS);
-define('JSON_PATH', SOURCE.'json'.DS);
+define('JSON_PATH', CONTENT_PATH.'json'.DS);
 
 // Domain and protocol
 define('DOMAIN', $_SERVER['HTTP_HOST']);
@@ -44,3 +44,14 @@ if (strpos($_SERVER['REQUEST_URI'], $base)!==0) {
 }
 define('BASE_URL', $base);
 define('NOT_FOUND',BASE_PATH.'404.php');
+
+// Get json values in array from php files
+function json2array($file) {
+	// Get Page list
+	$jsonvalues = file(JSON_PATH.$file);
+	// remove php security code in file
+	unset($jsonvalues[0]);
+	$jsonvalues = implode($jsonvalues);
+
+	return json_decode($jsonvalues, true);
+}

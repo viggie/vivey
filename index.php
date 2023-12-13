@@ -6,7 +6,7 @@
 session_start();
 require_once 'base-config.php';
 require_once SOURCE.'router.php';
-require_once SOURCE.'theme.php';
+require_once 'theme.php';
 $url = str_replace('/','\/',BASE_URL);
 
 $router = new ViveyRouter();

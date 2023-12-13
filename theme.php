@@ -1,13 +1,18 @@
 <?php 
 /*
  * Layout Theme
- * Author Viggie <viggie@viggie.com>
+ * Author Viggie <viggie@viggie.in>
  * 
- * Uses Bootstrap 4.3.1 in CDN.  You can change it to your preferrred CSS framework.  Just be sure to modify the class names in html as necessary
+ * Uses Bootstrap 5.3.2 in CDN.  You can change it to your preferrred CSS framework.  Just be sure to modify the class names in html as necessary
  */
 
-function the_header($navlink, $title="Web Developer",$keyword="", $desc="") {
+function the_header($navlink,$pageinfo,$siteinfo) {
   $url = BASE_URL;
+  $sitetitle = $siteinfo['title'];
+  $slogan = $siteinfo['slogan'];
+  $pagetitle = $pageinfo['title'];
+  $keyword = $pageinfo['keyword'];
+  $desc = $pageinfo['description'];
   $navhtml = '';
 
   // Building navigation
@@ -32,7 +37,7 @@ $html = <<<END
   	<meta name="keyword" content="$keyword">
     <meta name="generator" content="Vivey">
 
-    <title> $title  </title>
+    <title> $pagetitle :: $sitetitle - $slogan  </title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -45,7 +50,7 @@ $html = <<<END
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="$url">Vivey</a>
+        <a class="navbar-brand" href="$url">$sitetitle</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <span class="navbar-toggler-icon"></span>
@@ -83,7 +88,7 @@ $html .= <<<END
       <div class="container">
         <div class="row">
           <div class="col">
-            <span class="copyright"> &copy; $year $copyright </span>
+            <span class="copyright"> &copy; $copyright </span>
           </div>
           <div class="col">
             <ul class="list-inline float-end" style="font-size: 1.3rem;">
